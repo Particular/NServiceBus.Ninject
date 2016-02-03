@@ -13,13 +13,15 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
     class ObjectBuilderPropertyHeuristic : IObjectBuilderPropertyHeuristic
     {
         IList<Type> registeredTypes;
+        IKernel kernel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectBuilderPropertyHeuristic"/> class.
         /// </summary>
-        public ObjectBuilderPropertyHeuristic()
+        public ObjectBuilderPropertyHeuristic(IKernel container)
         {
             registeredTypes = new List<Type>();
+            kernel = container;
         }
 
         /// <summary>
@@ -41,8 +43,10 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
         /// <summary>
         /// Determines whether a given type should be injected.
         /// </summary>
-        /// <param name="member">The member info to check.</param>
-        /// <returns><see langword="true"/> if a given type needs to be injected; otherwise <see langword="false"/>.</returns>
+        /// <param name="member">The <paramref name="member"/> info to check.</param>
+        /// <returns>
+        ///   <see langword="true" /> if a given type needs to be injected; otherwise <see langword="false" />.
+        /// </returns>
         public bool ShouldInject(MemberInfo member)
         {
             var propertyInfo = member as PropertyInfo;
@@ -52,9 +56,17 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
                 return false;
             }
 
-            return registeredTypes.Any(x => propertyInfo.DeclaringType.IsAssignableFrom(x))
+            var shouldInject = registeredTypes.Any(x => propertyInfo?.DeclaringType?.IsAssignableFrom(x) ?? false)
                    && RegisteredTypes.Any(x => propertyInfo.PropertyType.IsAssignableFrom(x)) 
                    && propertyInfo.CanWrite;
+
+            if (shouldInject)
+            {
+                return true;
+            }
+
+            var instance = kernel.TryGet(propertyInfo.PropertyType);
+            return instance != null;
         }
 
         public void Dispose()
@@ -64,10 +76,7 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
 
         void DisposeManaged()
         {
-            if (registeredTypes != null)
-            {
-                registeredTypes.Clear();
-            }
+            registeredTypes?.Clear();
         }
     }
 }

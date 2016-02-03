@@ -14,7 +14,7 @@
         /// Defines a conditional binding which is applied when the requested service is in an unit of work.
         /// </summary>
         /// <typeparam name="T">The requested service type.</typeparam>
-        /// <param name="syntax">The syntax</param>
+        /// <param name="syntax">The <paramref name="syntax"/></param>
         /// <returns>The binding</returns>
         public static IBindingInNamedWithOrOnSyntax<T> WhenInUnitOfWork<T>(this IBindingWhenSyntax<T> syntax)
         {
@@ -25,7 +25,7 @@
         /// Defines a conditional binding which is applied when the requested service is NOT in an unit of work.
         /// </summary>
         /// <typeparam name="T">The requested service type.</typeparam>
-        /// <param name="syntax">The syntax</param>
+        /// <param name="syntax">The <paramref name="syntax"/></param>
         /// <returns>The binding</returns>
         public static IBindingInNamedWithOrOnSyntax<T> WhenNotInUnitOfWork<T>(this IBindingWhenSyntax<T> syntax)
         {
@@ -36,7 +36,7 @@
         /// Defines the unit of work scope on the requested service.
         /// </summary>
         /// <typeparam name="T">The requested service type.</typeparam>
-        /// <param name="syntax">The syntax.</param>
+        /// <param name="syntax">The <paramref name="syntax"/>.</param>
         /// <returns>The binding.</returns>
         public static IBindingNamedWithOrOnSyntax<T> InUnitOfWorkScope<T>(this IBindingInSyntax<T> syntax)
         {
