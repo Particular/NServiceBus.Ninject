@@ -2,63 +2,49 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
 {
     using System;
     using System.Collections.Generic;
-    using Common;
     using global::Ninject;
     using global::Ninject.Extensions.NamedScope;
-    using global::Ninject.Syntax;
+    using global::Ninject.Extensions.ChildKernel;
+    using global::Ninject.Extensions.ContextPreservation;
+    using global::Ninject.Parameters;
+    using System.Linq;
 
-    class NinjectChildContainer : DisposeNotifyingObject, IContainer
+    class NinjectChildContainer : BaseContainer
     {
-        IResolutionRoot resolutionRoot;
+        string parentScope;
+        BaseContainer parentContainer;
 
-        public NinjectChildContainer(IResolutionRoot resolutionRoot)
+        public NinjectChildContainer(IKernel resolutionRoot, BaseContainer parentContainer)
+            : base(new ChildKernel(resolutionRoot))
         {
-            this.resolutionRoot = resolutionRoot;
+            parentScope = parentContainer.GetContext();
+            scopeName = "Base.child";
+            this.parentContainer = parentContainer;
+
+            scope = kernel.CreateNamedScope(scopeName);
         }
 
-        public object Build(Type typeToBuild)
+        public override object Build(Type typeToBuild)
         {
-            return resolutionRoot.Get(typeToBuild);
+            var request = scope.CreateRequest(typeToBuild, null, new IParameter[0], false, true);
+            return request.ParentContext.GetContextPreservingResolutionRoot().Resolve(request).FirstOrDefault();
         }
 
-        public IEnumerable<object> BuildAll(Type typeToBuild)
+        public override IEnumerable<object> BuildAll(Type typeToBuild)
         {
-            return resolutionRoot.GetAll(typeToBuild);
+            return scope.GetAll(typeToBuild);
         }
 
-        public IContainer BuildChildContainer()
+        protected override void DisposeManaged()
         {
-            throw new NotImplementedException();
-        }
+            if (!scope?.IsDisposed ?? false)
+            {
+                scope?.Dispose();
 
-        public void Configure(Type component, DependencyLifecycle dependencyLifecycle)
-        {
-            throw new NotImplementedException();
-        }
+                parentContainer.NotifyScopeChange(parentScope);
+            }
 
-        public void Configure<T>(Func<T> component, DependencyLifecycle dependencyLifecycle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ConfigureProperty(Type component, string property, object value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RegisterSingleton(Type lookupType, object instance)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool HasComponent(Type componentType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Release(object instance)
-        {
-            throw new NotImplementedException();
+            base.DisposeManaged();
         }
     }
 }

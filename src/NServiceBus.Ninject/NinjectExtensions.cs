@@ -9,7 +9,7 @@
     public static class NinjectExtensions
     {
         /// <summary>
-        /// Use a pre-configured Ninject kernel
+        /// Use a pre-configured Ninject IKernel
         /// </summary>
         /// <param name="customizations"></param>
         /// <param name="kernel">The existing container instance.</param>
