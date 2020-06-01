@@ -17,7 +17,7 @@
 
   <!-- Workaround for https://github.com/NuGet/Home/issues/9431 -->
   <ItemGroup>
-    <SourceRoot Include="$(NuGetPackageRoot)" Condition="'$(NuGetPackageRoot)' != ''" />
+    <SourceRoot Include="$([MSBuild]::EnsureTrailingSlash($(NuGetPackageRoot)))" Condition="'$(NuGetPackageRoot)' != ''" />
   </ItemGroup>
   <!-- End Workaround -->
 
