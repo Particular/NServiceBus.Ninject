@@ -3,22 +3,30 @@
 [assembly: System.Runtime.InteropServices.ComVisibleAttribute(false)]
 namespace NServiceBus
 {
-    public class NinjectBuilder : NServiceBus.Container.ContainerDefinition
+    [System.ObsoleteAttribute("NServiceBus.Ninject is no longer supported. Use the externally managed container " +
+        "mode to integrate third party dependency injection containers with NServiceBus i" +
+        "nstead. Will be removed in version 9.0.0.", true)]
+    public class NinjectBuilder
     {
         public NinjectBuilder() { }
-        public override NServiceBus.ObjectBuilder.Common.IContainer CreateContainer(NServiceBus.Settings.ReadOnlySettings settings) { }
     }
-    public class static NinjectExtensions
-    {
-        public static void ExistingKernel(this NServiceBus.Container.ContainerCustomizations customizations, Ninject.IKernel kernel) { }
-    }
+    [System.ObsoleteAttribute("NServiceBus.Ninject is no longer supported. Use the externally managed container " +
+        "mode to integrate third party dependency injection containers with NServiceBus i" +
+        "nstead. Will be removed in version 9.0.0.", true)]
+    public class static NinjectExtensions { }
 }
 namespace NServiceBus.ObjectBuilder.Ninject
 {
+    [System.ObsoleteAttribute("NServiceBus.Ninject is no longer supported. Use the externally managed container " +
+        "mode to integrate third party dependency injection containers with NServiceBus i" +
+        "nstead. Will be removed in version 9.0.0.", true)]
     public class static NinjectObjectBuilderExtensions
     {
+        [System.ObsoleteAttribute(@"NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
         public static Ninject.Syntax.IBindingNamedWithOrOnSyntax<T> InUnitOfWorkScope<T>(this Ninject.Syntax.IBindingInSyntax<T> syntax) { }
+        [System.ObsoleteAttribute(@"NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
         public static Ninject.Syntax.IBindingInNamedWithOrOnSyntax<T> WhenInUnitOfWork<T>(this Ninject.Syntax.IBindingWhenSyntax<T> syntax) { }
+        [System.ObsoleteAttribute(@"NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
         public static Ninject.Syntax.IBindingInNamedWithOrOnSyntax<T> WhenNotInUnitOfWork<T>(this Ninject.Syntax.IBindingWhenSyntax<T> syntax) { }
     }
 }
