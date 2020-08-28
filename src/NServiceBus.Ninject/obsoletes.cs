@@ -1,5 +1,10 @@
 ﻿namespace NServiceBus
 {
+    // An internal type referenced by the API approvals test as it can't reference obsoleted types.
+    class NinjectInternalType
+    {
+    }
+
     /// <summary>
     /// Ninject Container
     /// </summary>
