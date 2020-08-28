@@ -8,7 +8,7 @@
     /// <summary>
     /// Ninject Container
     /// </summary>
-    [ObsoleteEx(Message = "NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead.",
+    [ObsoleteEx(Message = "Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode.",
         TreatAsErrorFromVersion = "8",
         RemoveInVersion = "9")]
     public class NinjectBuilder
@@ -18,7 +18,7 @@
     /// <summary>
     /// Ninject extension to pass an existing Ninject container instance.
     /// </summary>
-    [ObsoleteEx(Message = "NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead.",
+    [ObsoleteEx(Message = "Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode.",
         TreatAsErrorFromVersion = "8",
         RemoveInVersion = "9")]
     public static class NinjectExtensions
@@ -35,7 +35,7 @@ namespace NServiceBus.ObjectBuilder.Ninject
     /// <summary>
     /// Contains extension methods to configure UnitOfWork scoped bindings.
     /// </summary>
-    [ObsoleteEx(Message = "NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead.",
+    [ObsoleteEx(Message = "Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode.",
         TreatAsErrorFromVersion = "8",
         RemoveInVersion = "9")]
     public static class NinjectObjectBuilderExtensions
@@ -46,7 +46,7 @@ namespace NServiceBus.ObjectBuilder.Ninject
         /// <typeparam name="T">The requested service type.</typeparam>
         /// <param name="syntax">The syntax</param>
         /// <returns>The binding</returns>
-        [ObsoleteEx(Message = "NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead.",
+        [ObsoleteEx(Message = "Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode.",
             TreatAsErrorFromVersion = "8",
             RemoveInVersion = "9")]
         public static IBindingInNamedWithOrOnSyntax<T> WhenInUnitOfWork<T>(this IBindingWhenSyntax<T> syntax)
@@ -60,7 +60,7 @@ namespace NServiceBus.ObjectBuilder.Ninject
         /// <typeparam name="T">The requested service type.</typeparam>
         /// <param name="syntax">The syntax</param>
         /// <returns>The binding</returns>
-        [ObsoleteEx(Message = "NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead.",
+        [ObsoleteEx(Message = "Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode.",
             TreatAsErrorFromVersion = "8",
             RemoveInVersion = "9")]
         public static IBindingInNamedWithOrOnSyntax<T> WhenNotInUnitOfWork<T>(this IBindingWhenSyntax<T> syntax)
@@ -74,7 +74,7 @@ namespace NServiceBus.ObjectBuilder.Ninject
         /// <typeparam name="T">The requested service type.</typeparam>
         /// <param name="syntax">The syntax.</param>
         /// <returns>The binding.</returns>
-        [ObsoleteEx(Message = "NServiceBus.Ninject is no longer supported. Use the externally managed container mode to integrate third party dependency injection containers with NServiceBus instead.",
+        [ObsoleteEx(Message = "Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode.",
             TreatAsErrorFromVersion = "8",
             RemoveInVersion = "9")]
         public static IBindingNamedWithOrOnSyntax<T> InUnitOfWorkScope<T>(this IBindingInSyntax<T> syntax)
