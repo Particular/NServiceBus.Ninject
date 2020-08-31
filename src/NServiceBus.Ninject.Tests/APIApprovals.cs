@@ -1,4 +1,4 @@
-﻿using NServiceBus.ObjectBuilder.Ninject;
+﻿using NServiceBus;
 using NUnit.Framework;
 using Particular.Approvals;
 using PublicApiGenerator;
@@ -9,7 +9,7 @@ public class APIApprovals
     [Test]
     public void Approve()
     {
-        var publicApi = ApiGenerator.GeneratePublicApi(typeof(NinjectObjectBuilder).Assembly, excludeAttributes: new[] { "System.Runtime.Versioning.TargetFrameworkAttribute" });
+        var publicApi = ApiGenerator.GeneratePublicApi(typeof(NinjectInternalType).Assembly, excludeAttributes: new[] { "System.Runtime.Versioning.TargetFrameworkAttribute" });
         Approver.Verify(publicApi);
     }
 }
