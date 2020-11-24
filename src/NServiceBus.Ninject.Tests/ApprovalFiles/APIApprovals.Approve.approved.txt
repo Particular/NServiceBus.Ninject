@@ -1,26 +1,26 @@
-[assembly: System.CLSCompliantAttribute(true)]
-[assembly: System.Runtime.CompilerServices.InternalsVisibleToAttribute(@"NServiceBus.Ninject.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100dde965e6172e019ac82c2639ffe494dd2e7dd16347c34762a05732b492e110f2e4e2e1b5ef2d85c848ccfb671ee20a47c8d1376276708dc30a90ff1121b647ba3b7259a6bc383b2034938ef0e275b58b920375ac605076178123693c6c4f1331661a62eba28c249386855637780e3ff5f23a6d854700eaa6803ef48907513b92")]
-[assembly: System.Runtime.InteropServices.ComVisibleAttribute(false)]
+[assembly: System.CLSCompliant(true)]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo(@"NServiceBus.Ninject.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100dde965e6172e019ac82c2639ffe494dd2e7dd16347c34762a05732b492e110f2e4e2e1b5ef2d85c848ccfb671ee20a47c8d1376276708dc30a90ff1121b647ba3b7259a6bc383b2034938ef0e275b58b920375ac605076178123693c6c4f1331661a62eba28c249386855637780e3ff5f23a6d854700eaa6803ef48907513b92")]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
 namespace NServiceBus
 {
-    [System.ObsoleteAttribute(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. Will be removed in version 9.0.0.", true)]
+    [System.Obsolete(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. Will be removed in version 9.0.0.", true)]
     public class NinjectBuilder
     {
         public NinjectBuilder() { }
     }
-    [System.ObsoleteAttribute(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. Will be removed in version 9.0.0.", true)]
-    public class static NinjectExtensions { }
+    [System.Obsolete(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. Will be removed in version 9.0.0.", true)]
+    public static class NinjectExtensions { }
 }
 namespace NServiceBus.ObjectBuilder.Ninject
 {
-    [System.ObsoleteAttribute(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. Will be removed in version 9.0.0.", true)]
-    public class static NinjectObjectBuilderExtensions
+    [System.Obsolete(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. Will be removed in version 9.0.0.", true)]
+    public static class NinjectObjectBuilderExtensions
     {
-        [System.ObsoleteAttribute(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
+        [System.Obsolete(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
         public static Ninject.Syntax.IBindingNamedWithOrOnSyntax<T> InUnitOfWorkScope<T>(this Ninject.Syntax.IBindingInSyntax<T> syntax) { }
-        [System.ObsoleteAttribute(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
+        [System.Obsolete(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
         public static Ninject.Syntax.IBindingInNamedWithOrOnSyntax<T> WhenInUnitOfWork<T>(this Ninject.Syntax.IBindingWhenSyntax<T> syntax) { }
-        [System.ObsoleteAttribute(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
+        [System.Obsolete(@"Ninject is no longer supported via the NServiceBus.Ninject adapter. NServiceBus directly supports all containers compatible with Microsoft.Extensions.DependencyInjection.Abstractions via the externally managed container mode. The member currently throws a NotImplementedException. Will be removed in version 9.0.0.", true)]
         public static Ninject.Syntax.IBindingInNamedWithOrOnSyntax<T> WhenNotInUnitOfWork<T>(this Ninject.Syntax.IBindingWhenSyntax<T> syntax) { }
     }
 }
