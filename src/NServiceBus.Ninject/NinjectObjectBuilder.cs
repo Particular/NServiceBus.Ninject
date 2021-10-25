@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Common;
     using global::Ninject;
     using global::Ninject.Activation;
     using global::Ninject.Infrastructure;
@@ -10,7 +11,6 @@
     using global::Ninject.Parameters;
     using global::Ninject.Planning.Bindings;
     using global::Ninject.Selection;
-    using Common;
     using Internal;
 
     class NinjectObjectBuilder : IContainer
@@ -157,6 +157,7 @@
             return result.Distinct();
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Fody.Janitor")]
         void DisposeManaged()
         {
             if (!owned)
@@ -177,9 +178,7 @@
 
         Func<IContext, object> GetInstanceScopeFrom(DependencyLifecycle dependencyLifecycle)
         {
-            Func<IContext, object> scope;
-
-            if (!dependencyLifecycleToScopeMapping.TryGetValue(dependencyLifecycle, out scope))
+            if (!dependencyLifecycleToScopeMapping.TryGetValue(dependencyLifecycle, out Func<IContext, object> scope))
             {
                 throw new ArgumentException("The dependency lifecycle is not supported", "dependencyLifecycle");
             }

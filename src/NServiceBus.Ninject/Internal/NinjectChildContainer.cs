@@ -41,6 +41,7 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
             throw new InvalidOperationException("Can't perform configurations on child containers");
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Not changing public API")]
         public void ConfigureProperty(Type component, string property, object value)
         {
             throw new InvalidOperationException("Can't perform configurations on child containers");

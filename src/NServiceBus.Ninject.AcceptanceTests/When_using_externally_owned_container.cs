@@ -42,7 +42,7 @@
 
                     config.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
 
-                    var context = (Context) desc.ScenarioContext;
+                    var context = (Context)desc.ScenarioContext;
                     context.Kernel = kernel;
                 });
             }

@@ -19,7 +19,7 @@ public class SetUpFixture
         var ninjectSettings = new NinjectSettings { LoadExtensions = false };
         var contextPreservationModule = new ContextPreservationModule();
         var namedScopeModule = new NamedScopeModule();
-        var standardKernel = new StandardKernel(ninjectSettings,contextPreservationModule, namedScopeModule);
+        var standardKernel = new StandardKernel(ninjectSettings, contextPreservationModule, namedScopeModule);
         return new NinjectObjectBuilder(standardKernel, true);
     }
 }

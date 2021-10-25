@@ -7,7 +7,7 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
     /// <summary>
     /// Implements a heuristic for ninject property injection.
     /// </summary>
-    internal interface IObjectBuilderPropertyHeuristic : IInjectionHeuristic
+    interface IObjectBuilderPropertyHeuristic : IInjectionHeuristic
     {
         /// <summary>
         /// Gets the registered types.
