@@ -18,9 +18,7 @@
         /// <returns>The new container wrapper.</returns>
         public override IContainer CreateContainer(ReadOnlySettings settings)
         {
-            KernelHolder kernelHolder;
-
-            if (settings.TryGet(out kernelHolder))
+            if (settings.TryGet(out KernelHolder kernelHolder))
             {
                 settings.AddStartupDiagnosticsSection("NServiceBus.Ninject", new
                 {

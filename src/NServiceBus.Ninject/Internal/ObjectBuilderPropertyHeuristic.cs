@@ -12,31 +12,25 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
     /// </summary>
     class ObjectBuilderPropertyHeuristic : IObjectBuilderPropertyHeuristic
     {
-        IList<Type> registeredTypes;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectBuilderPropertyHeuristic"/> class.
         /// </summary>
         public ObjectBuilderPropertyHeuristic()
         {
-            registeredTypes = new List<Type>();
+            RegisteredTypes = new List<Type>();
         }
 
         /// <summary>
         /// Gets the registered types.
         /// </summary>
         /// <value>The registered types.</value>
-        public IList<Type> RegisteredTypes
-        {
-            get { return registeredTypes; }
-            private set { registeredTypes = value; }
-        }
+        public IList<Type> RegisteredTypes { get; set; }
 
         /// <summary>
         /// Gets or sets the settings.
         /// </summary>
         /// <value>The settings.</value>
-        public INinjectSettings Settings{get;set;}
+        public INinjectSettings Settings { get; set; }
 
         /// <summary>
         /// Determines whether a given type should be injected.
@@ -52,7 +46,7 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
                 return false;
             }
 
-            return registeredTypes.Any(x => propertyInfo.PropertyType.IsAssignableFrom(x))
+            return RegisteredTypes.Any(x => propertyInfo.PropertyType.IsAssignableFrom(x))
                    && propertyInfo.CanWrite;
         }
 
@@ -61,11 +55,12 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
             //Injected at compile time
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Fody.Janitor")]
         void DisposeManaged()
         {
-            if (registeredTypes != null)
+            if (RegisteredTypes != null)
             {
-                registeredTypes.Clear();
+                RegisteredTypes.Clear();
             }
         }
     }
