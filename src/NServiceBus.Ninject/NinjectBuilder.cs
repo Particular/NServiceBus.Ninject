@@ -9,6 +9,9 @@
     /// <summary>
     /// Ninject Container
     /// </summary>
+    [ObsoleteEx(Message = "Support for external dependency injection containers is no longer provided by NServiceBus adapters for each container library. Instead, the NServiceBus.Extensions.DependencyInjection library provides the ability to use any container that conforms to the Microsoft.Extensions.DependencyInjection container abstraction.",
+    TreatAsErrorFromVersion = "8",
+    RemoveInVersion = "9")]
     public class NinjectBuilder : ContainerDefinition
     {
         /// <summary>

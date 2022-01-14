@@ -45,7 +45,10 @@
                 LoadExtensions = false
             };
             var kernel = new StandardKernel(settings);
+
+#pragma warning disable 618
             builder.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
+#pragma warning restore 618
             builder.UseTransport<LearningTransport>();
 
             builder.Recoverability().Delayed(delayedRetries => delayedRetries.NumberOfRetries(0));
