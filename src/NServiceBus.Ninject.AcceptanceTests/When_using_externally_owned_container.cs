@@ -39,9 +39,9 @@
                         LoadExtensions = false
                     };
                     var kernel = new StandardKernel(setttings);
-
+#pragma warning disable 618
                     config.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
-
+#pragma warning restore 618
                     var context = (Context)desc.ScenarioContext;
                     context.Kernel = kernel;
                 });
