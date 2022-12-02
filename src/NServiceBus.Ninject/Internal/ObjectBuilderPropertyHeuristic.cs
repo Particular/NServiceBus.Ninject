@@ -15,10 +15,7 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectBuilderPropertyHeuristic"/> class.
         /// </summary>
-        public ObjectBuilderPropertyHeuristic()
-        {
-            RegisteredTypes = new List<Type>();
-        }
+        public ObjectBuilderPropertyHeuristic() => RegisteredTypes = new List<Type>();
 
         /// <summary>
         /// Gets the registered types.
@@ -56,12 +53,6 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Fody.Janitor")]
-        void DisposeManaged()
-        {
-            if (RegisteredTypes != null)
-            {
-                RegisteredTypes.Clear();
-            }
-        }
+        void DisposeManaged() => RegisteredTypes?.Clear();
     }
 }
